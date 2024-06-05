@@ -26,11 +26,10 @@ db_pass=${db_pass}
 EOF
 fi
 
-# this file has passwords
-sudo su - root <<EOF
-chown root:root "${PROJECT_ROOT}"/config
+# Set ownership and permissions (assuming the script is run with sufficient privileges)
+chown $(whoami):$(whoami) "${PROJECT_ROOT}"/config
 chmod 700 "${PROJECT_ROOT}"/config
-EOF
+
 source "${PROJECT_ROOT}"/config
 
 # interactive CLI
